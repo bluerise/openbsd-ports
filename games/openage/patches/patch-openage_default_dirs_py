@@ -1,0 +1,29 @@
+$OpenBSD$
+
+Index: openage/default_dirs.py
+--- openage/default_dirs.py.orig
++++ openage/default_dirs.py
+@@ -34,6 +34,13 @@ LINUX_DIRS = {
+ }
+ 
+ 
++# OpenBSD-specific paths
++OPENBSD_DIRS = {
++    "config_home": ("OPENAGE_CONFIG_HOME", ("{HOME}/.config", {"HOME"})),
++    "data_home": ("OPENAGE_DATA_HOME", ("{HOME}/.local/share", {"HOME"})),
++}
++
++
+ # Windows-specific paths
+ WINDOWS_DIRS = {
+     "config_home": ("APPDATA", (False, None)),
+@@ -56,6 +63,9 @@ def get_dir(which):
+ 
+     elif sys.platform.startswith("darwin"):
+         raise Exception("macOS not really supported")
++
++    elif sys.platform.startswith("openbsd"):
++        platform_table = OPENBSD_DIRS
+ 
+     elif sys.platform.startswith("win32"):
+         platform_table = WINDOWS_DIRS

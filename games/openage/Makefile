@@ -31,6 +31,8 @@ BUILD_DEPENDS =		math/py-numpy${MODPY_FLAVOR} \
 			math/eigen3 \
 			games/nyan \
 			textproc/py-toml${MODPY_FLAVOR} \
+			textproc/py-pygments${MODPY_FLAVOR} \
+			www/py-jinja2${MODPY_FLAVOR} \
 
 LIB_DEPENDS =		devel/sdl2 \
 			devel/sdl2-image \
