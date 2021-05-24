@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: libopenage/util/pty.h
+--- libopenage/util/pty.h.orig
++++ libopenage/util/pty.h
+@@ -9,6 +9,8 @@
+ #  include <sys/ioctl.h>
+ #  include <termios.h>
+ #  include <libutil.h>
++#elif defined(__OpenBSD__)
++#  include <util.h>
+ #elif _WIN32
+ // TODO not yet implemented
+ #else

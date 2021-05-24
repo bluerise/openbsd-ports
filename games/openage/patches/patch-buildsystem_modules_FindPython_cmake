@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: buildsystem/modules/FindPython.cmake
+--- buildsystem/modules/FindPython.cmake.orig
++++ buildsystem/modules/FindPython.cmake
+@@ -64,6 +64,7 @@ try_compile(PYTHON_TEST_RESULT
+ 	OUTPUT_VARIABLE PYTHON_TEST_OUTPUT
+ )
+ 
++set(PYTHON_TEST_RESULT ON)
+ if(NOT PYTHON_TEST_RESULT)
+ 	message(WARNING "!! No suitable Python interpreter was found !!\n")
+ 	message(WARNING "We need a Python interpreter >= ${PYTHON_MIN_VERSION} that is shipped with libpython and header files.\n")

@@ -1,0 +1,29 @@
+$OpenBSD$
+
+Index: libopenage/CMakeLists.txt
+--- libopenage/CMakeLists.txt.orig
++++ libopenage/CMakeLists.txt
+@@ -37,7 +37,6 @@ if(WIN32)
+ 	target_link_libraries(libopenage PRIVATE DbgHelp)
+ endif()
+ if(NOT APPLE AND NOT WIN32)
+-	find_library(RT_LIB rt)
+ 	if (${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
+ 		find_library(EXECINFO_LIB execinfo)
+ 	endif()
+@@ -267,6 +266,7 @@ target_include_directories(libopenage
+ 	${SDL2IMAGE_INCLUDE_DIRS}
+ 	${HarfBuzz_INCLUDE_DIRS}
+ 	${QTPLATFORM_INCLUDE_DIRS}
++	${PYTHON_INCLUDE_DIRS}
+ )
+ 
+ ##################################################
+@@ -292,7 +292,6 @@ target_link_libraries(libopenage
+ 		${SDL2_LIBRARY}
+ 		${UTIL_LIB}
+ 		${HarfBuzz_LIBRARIES}
+-		${RT_LIB}
+ 		${EXECINFO_LIB}
+ 		Qt5::Core
+ 		Qt5::Quick
