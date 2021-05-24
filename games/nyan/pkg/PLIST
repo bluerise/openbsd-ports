@@ -66,4 +66,3 @@ lib/cmake/nyan/nyanConfigVersion.cmake
 lib/cmake/nyan/nyanTargets${MODCMAKE_BUILD_SUFFIX}
 lib/cmake/nyan/nyanTargets.cmake
 @lib lib/libnyan.so.${LIBnyan_VERSION}
-lib/libnyan.so.1
