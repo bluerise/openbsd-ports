@@ -38,6 +38,7 @@ LIB_DEPENDS =		devel/sdl2 \
 			devel/sdl2-image \
 			audio/opusfile \
 
+RUN_DEPENDS =		archivers/py-lz4${MODPY_FLAVOR}
 
 #CONFIGURE_ARGS +==	DCMAKE_PREFIX_PATH=${LOCALBASE}/include/eigen3 \
 
