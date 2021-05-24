@@ -5,17 +5,15 @@ COMMENT =	lightweight C++ template library for linear algebra
 CATEGORIES =	math devel
 HOMEPAGE =	http://eigen.tuxfamily.org/
 DIST_SUBDIR =	eigen
-VERSION =	3.2.2
+VERSION =	3.3.9
 DISTNAME =	${VERSION}
 PKGNAME =	eigen3-${VERSION}
-WRKDIST =	${WRKDIR}/eigen-eigen-1306d75b4a21
-REVISION =	5
+WRKDIST =	${WRKDIR}/eigen-${VERSION}-0fd6b4f71dd85b2009ee4d1aeb296e2c11fc9d68
 
 # Mostly MPLv2, also LGPLv2.1, LGPLv2.1+ and BSDL
 PERMIT_PACKAGE =	Yes
 
-MASTER_SITES =	http://bitbucket.org/eigen/eigen/get/ \
-		https://spacehopper.org/mirrors/eigen/
+MASTER_SITES =	https://gitlab.com/libeigen/eigen/-/archive/${VERSION}/
 
 # Many dependencies are only needed for tests
 PSEUDO_FLAVORS =	test
