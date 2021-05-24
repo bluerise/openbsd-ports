@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: buildsystem/modules/FindPython.cmake
+--- buildsystem/modules/FindPython.cmake.orig
++++ buildsystem/modules/FindPython.cmake
+@@ -33,7 +33,7 @@ endif()
+ set(Python3_FIND_REGISTRY "NEVER")
+ 
+ # use cmake's FindPython3 to locate library and interpreter
+-find_package(Python3 ${PYTHON_MIN_VERSION} COMPONENTS Interpreter Development NumPy)
++find_package(Python3 3.8 EXACT COMPONENTS Interpreter Development NumPy)
+ 
+ 
+ # python version string to cpython api test in modules/FindPython_test.cpp
