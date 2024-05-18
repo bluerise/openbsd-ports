@@ -1,0 +1,166 @@
+Index: arch/arm64/boot/dts/qcom/sc8280xp.dtsi
+--- arch/arm64/boot/dts/qcom/sc8280xp.dtsi.orig
++++ arch/arm64/boot/dts/qcom/sc8280xp.dtsi
+@@ -1743,6 +1743,8 @@
+ 					<0 0 0 2 &intc 0 0 GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 3 &intc 0 0 GIC_SPI 151 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 4 &intc 0 0 GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0x0 &its 0xe0000 0x10000>;
++			iommu-map = <0 &pcie_smmu 0x60000 0x10000>;
+ 
+ 			clocks = <&gcc GCC_PCIE_4_AUX_CLK>,
+ 				 <&gcc GCC_PCIE_4_CFG_AHB_CLK>,
+@@ -1844,6 +1846,8 @@
+ 					<0 0 0 2 &intc 0 0 GIC_SPI 527 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 3 &intc 0 0 GIC_SPI 528 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 4 &intc 0 0 GIC_SPI 529 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0x0 &its 0xd0000 0x10000>;
++			iommu-map = <0 &pcie_smmu 0x50000 0x10000>;
+ 
+ 			clocks = <&gcc GCC_PCIE_3B_AUX_CLK>,
+ 				 <&gcc GCC_PCIE_3B_CFG_AHB_CLK>,
+@@ -1943,6 +1947,8 @@
+ 					<0 0 0 2 &intc 0 0 GIC_SPI 542 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 3 &intc 0 0 GIC_SPI 543 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 4 &intc 0 0 GIC_SPI 544 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0x0 &its 0xc0000 0x10000>;
++			iommu-map = <0 &pcie_smmu 0x40000 0x10000>;
+ 
+ 			clocks = <&gcc GCC_PCIE_3A_AUX_CLK>,
+ 				 <&gcc GCC_PCIE_3A_CFG_AHB_CLK>,
+@@ -2045,6 +2051,8 @@
+ 					<0 0 0 2 &intc 0 0 GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 3 &intc 0 0 GIC_SPI 435 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 4 &intc 0 0 GIC_SPI 438 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0x0 &its 0xb0000 0x10000>;
++			iommu-map = <0 &pcie_smmu 0x30000 0x10000>;
+ 
+ 			clocks = <&gcc GCC_PCIE_2B_AUX_CLK>,
+ 				 <&gcc GCC_PCIE_2B_CFG_AHB_CLK>,
+@@ -2144,6 +2152,8 @@
+ 					<0 0 0 2 &intc 0 0 GIC_SPI 531 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 3 &intc 0 0 GIC_SPI 532 IRQ_TYPE_LEVEL_HIGH>,
+ 					<0 0 0 4 &intc 0 0 GIC_SPI 533 IRQ_TYPE_LEVEL_HIGH>;
++			msi-map = <0x0 &its 0xa0000 0x10000>;
++			iommu-map = <0 &pcie_smmu 0x20000 0x10000>;
+ 
+ 			clocks = <&gcc GCC_PCIE_2A_AUX_CLK>,
+ 				 <&gcc GCC_PCIE_2A_CFG_AHB_CLK>,
+@@ -3342,6 +3352,88 @@
+ 			interrupts = <GIC_SPI 582 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
++		usb_2: usb@a4f8800 {
++			compatible = "qcom,sc8280xp-dwc3-mp", "qcom,dwc3";
++			reg = <0 0x0a4f8800 0 0x400>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
++
++			clocks = <&gcc GCC_CFG_NOC_USB3_MP_AXI_CLK>,
++				 <&gcc GCC_USB30_MP_MASTER_CLK>,
++				 <&gcc GCC_AGGRE_USB3_MP_AXI_CLK>,
++				 <&gcc GCC_USB30_MP_SLEEP_CLK>,
++				 <&gcc GCC_USB30_MP_MOCK_UTMI_CLK>,
++				 <&gcc GCC_AGGRE_USB_NOC_AXI_CLK>,
++				 <&gcc GCC_AGGRE_USB_NOC_NORTH_AXI_CLK>,
++				 <&gcc GCC_AGGRE_USB_NOC_SOUTH_AXI_CLK>,
++				 <&gcc GCC_SYS_NOC_USB_AXI_CLK>;
++			clock-names = "cfg_noc", "core", "iface", "sleep", "mock_utmi",
++				      "noc_aggr", "noc_aggr_north", "noc_aggr_south", "noc_sys";
++
++			assigned-clocks = <&gcc GCC_USB30_MP_MOCK_UTMI_CLK>,
++					  <&gcc GCC_USB30_MP_MASTER_CLK>;
++			assigned-clock-rates = <19200000>, <200000000>;
++
++			interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 857 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 856 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 860 IRQ_TYPE_LEVEL_HIGH>,
++					      <&intc GIC_SPI 859 IRQ_TYPE_LEVEL_HIGH>,
++					      <&pdc 127 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 126 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 129 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 128 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 131 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 130 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 133 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 132 IRQ_TYPE_EDGE_BOTH>,
++					      <&pdc 16 IRQ_TYPE_LEVEL_HIGH>,
++					      <&pdc 17 IRQ_TYPE_LEVEL_HIGH>;
++
++			interrupt-names = "pwr_event_1", "pwr_event_2",
++					  "pwr_event_3", "pwr_event_4",
++					  "hs_phy_1",	 "hs_phy_2",
++					  "hs_phy_3",	 "hs_phy_4",
++					  "dp_hs_phy_1", "dm_hs_phy_1",
++					  "dp_hs_phy_2", "dm_hs_phy_2",
++					  "dp_hs_phy_3", "dm_hs_phy_3",
++					  "dp_hs_phy_4", "dm_hs_phy_4",
++					  "ss_phy_1",	 "ss_phy_2";
++
++			power-domains = <&gcc USB30_MP_GDSC>;
++			required-opps = <&rpmhpd_opp_nom>;
++
++			resets = <&gcc GCC_USB30_MP_BCR>;
++
++			interconnects = <&aggre1_noc MASTER_USB3_MP 0 &mc_virt SLAVE_EBI1 0>,
++					<&gem_noc MASTER_APPSS_PROC 0 &config_noc SLAVE_USB3_MP 0>;
++			interconnect-names = "usb-ddr", "apps-usb";
++
++			wakeup-source;
++
++			status = "disabled";
++
++			usb_2_dwc3: usb@a400000 {
++				compatible = "snps,dwc3";
++				reg = <0 0x0a400000 0 0xcd00>;
++				interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
++				iommus = <&apps_smmu 0x800 0x0>;
++				phys = <&usb_2_hsphy0>, <&usb_2_qmpphy0>,
++				       <&usb_2_hsphy1>, <&usb_2_qmpphy1>,
++				       <&usb_2_hsphy2>,
++				       <&usb_2_hsphy3>;
++				phy-names = "usb2-0", "usb3-0",
++					    "usb2-1", "usb3-1",
++					    "usb2-2",
++					    "usb2-3";
++				dr_mode = "host";
++			};
++		};
++
+ 		usb_0: usb@a6f8800 {
+ 			compatible = "qcom,sc8280xp-dwc3", "qcom,dwc3";
+ 			reg = <0 0x0a6f8800 0 0x400>;
+@@ -4653,6 +4745,19 @@
+ 			};
+ 		};
+ 
++		pcie_smmu: iommu@14f80000 {
++			compatible = "arm,smmu-v3";
++			reg = <0 0x14f80000 0 0x80000>;
++			interrupts = <0 /*GIC_SPI*/ 951 1 /*IRQ_TYPE_EDGE_RISING*/>,
++				     <0 /*GIC_SPI*/ 955 1 /*IRQ_TYPE_EDGE_RISING*/>,
++				     <0 /*GIC_SPI*/ 953 1 /*IRQ_TYPE_EDGE_RISING*/>;
++			interrupt-names = "eventq",
++					  "gerror",
++					  "cmdq-sync";
++			#iommu-cells = <1>;
++			dma-coherent;
++		};
++
+ 		apps_smmu: iommu@15000000 {
+ 			compatible = "qcom,sc8280xp-smmu-500", "arm,mmu-500";
+ 			reg = <0 0x15000000 0 0x100000>;
+@@ -4804,7 +4909,7 @@
+ 			#size-cells = <2>;
+ 			ranges;
+ 
+-			msi-controller@17a40000 {
++			its: msi-controller@17a40000 {
+ 				compatible = "arm,gic-v3-its";
+ 				reg = <0 0x17a40000 0 0x20000>;
+ 				msi-controller;
