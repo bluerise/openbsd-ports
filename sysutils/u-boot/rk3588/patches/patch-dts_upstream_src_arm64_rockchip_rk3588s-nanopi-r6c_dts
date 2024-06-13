@@ -1,6 +1,6 @@
-Index: arch/arm/dts/rk3588s-nanopi-r6c.dts
---- arch/arm/dts/rk3588s-nanopi-r6c.dts.orig
-+++ arch/arm/dts/rk3588s-nanopi-r6c.dts
+Index: dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6c.dts
+--- dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6c.dts.orig
++++ dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6c.dts
 @@ -0,0 +1,14 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
