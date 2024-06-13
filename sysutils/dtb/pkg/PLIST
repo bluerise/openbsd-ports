@@ -2373,6 +2373,7 @@ share/dtb/arm64/qcom/sc8180x-lenovo-flex-5g.dtb
 share/dtb/arm64/qcom/sc8180x-primus.dtb
 share/dtb/arm64/qcom/sc8280xp-crd.dtb
 share/dtb/arm64/qcom/sc8280xp-lenovo-thinkpad-x13s.dtb
+share/dtb/arm64/qcom/sc8280xp-microsoft-blackrock.dtb
 share/dtb/arm64/qcom/sda660-inforce-ifc6560.dtb
 share/dtb/arm64/qcom/sdm450-motorola-ali.dtb
 share/dtb/arm64/qcom/sdm630-sony-xperia-ganges-kirin.dtb
