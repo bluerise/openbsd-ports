@@ -1,6 +1,6 @@
-Index: arch/arm/dts/rk3568.dtsi
---- arch/arm/dts/rk3568.dtsi.orig
-+++ arch/arm/dts/rk3568.dtsi
+Index: dts/upstream/src/arm64/rockchip/rk3568.dtsi
+--- dts/upstream/src/arm64/rockchip/rk3568.dtsi.orig
++++ dts/upstream/src/arm64/rockchip/rk3568.dtsi
 @@ -97,7 +97,7 @@
  		      <0x0 0xf2000000 0x0 0x00100000>;
  		ranges = <0x01000000 0x0 0xf2100000 0x0 0xf2100000 0x0 0x00100000>,
