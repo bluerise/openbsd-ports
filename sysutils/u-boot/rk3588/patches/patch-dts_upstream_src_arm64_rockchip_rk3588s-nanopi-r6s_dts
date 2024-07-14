@@ -1,7 +1,7 @@
 Index: dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6s.dts
 --- dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6s.dts.orig
 +++ dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6s.dts
-@@ -0,0 +1,765 @@
+@@ -0,0 +1,764 @@
 +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 +
 +/dts-v1/;
@@ -19,7 +19,6 @@ Index: dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6s.dts
 +		ethernet0 = &gmac1;
 +		mmc0 = &sdmmc;
 +		mmc1 = &sdhci;
-+		serial2 = &uart2;
 +	};
 +
 +	chosen {
