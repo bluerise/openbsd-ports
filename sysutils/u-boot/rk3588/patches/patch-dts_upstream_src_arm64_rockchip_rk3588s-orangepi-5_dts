@@ -1,7 +1,7 @@
 Index: dts/upstream/src/arm64/rockchip/rk3588s-orangepi-5.dts
 --- dts/upstream/src/arm64/rockchip/rk3588s-orangepi-5.dts.orig
 +++ dts/upstream/src/arm64/rockchip/rk3588s-orangepi-5.dts
-@@ -18,7 +18,7 @@
+@@ -19,7 +19,7 @@
  	};
  
  	chosen {
@@ -10,12 +10,3 @@ Index: dts/upstream/src/arm64/rockchip/rk3588s-orangepi-5.dts
  	};
  
  	adc-keys {
-@@ -336,7 +336,7 @@
- 		#gpio-cells = <2>;
- 
- 		rk806_dvs1_null: dvs1-null-pins {
--			pins = "gpio_pwrctrl2";
-+			pins = "gpio_pwrctrl1";
- 			function = "pin_fun0";
- 		};
- 

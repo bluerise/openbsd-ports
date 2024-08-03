@@ -1,7 +1,7 @@
 Index: dts/upstream/src/arm64/rockchip/rk356x.dtsi
 --- dts/upstream/src/arm64/rockchip/rk356x.dtsi.orig
 +++ dts/upstream/src/arm64/rockchip/rk356x.dtsi
-@@ -1002,7 +1002,7 @@
+@@ -1044,7 +1044,7 @@
  		power-domains = <&power RK3568_PD_PIPE>;
  		ranges = <0x01000000 0x0 0xf4100000 0x0 0xf4100000 0x0 0x00100000>,
  			 <0x02000000 0x0 0xf4200000 0x0 0xf4200000 0x0 0x01e00000>,
