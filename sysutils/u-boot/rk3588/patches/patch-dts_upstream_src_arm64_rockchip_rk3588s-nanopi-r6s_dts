@@ -10,3 +10,31 @@ Index: dts/upstream/src/arm64/rockchip/rk3588s-nanopi-r6s.dts
  	};
  
  	adc-keys {
+@@ -741,6 +741,15 @@
+ 	status = "okay";
+ };
+ 
++&u2phy0 {
++	status = "okay";
++};
++
++&u2phy0_otg {
++	phy-supply = <&vcc5v0_usb_otg0>;
++	status = "okay";
++};
++
+ &u2phy2 {
+ 	status = "okay";
+ };
+@@ -752,6 +761,11 @@
+ 
+ &uart2 {
+ 	pinctrl-0 = <&uart2m0_xfer>;
++	status = "okay";
++};
++
++&usb_host0_xhci {
++	dr_mode = "host";
+ 	status = "okay";
+ };
+ 
