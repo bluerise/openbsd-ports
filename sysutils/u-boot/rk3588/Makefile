@@ -3,13 +3,16 @@ VERSION=	2024.10
 SOC=		rk3588
 
 BOARDS=\
-	nanopi-r6c-rk3588s \
-	nanopi-r6s-rk3588s \
-	nanopc-t6-rk3588 \
-	orangepi-5-plus-rk3588 \
-	orangepi-5-rk3588s \
-	rock5a-rk3588s \
-	rock5b-rk3588
+	mnt-reform2-rk3588 \
+	mnt-pocket-reform-rk3588 \
+	mnt-reform-next-rk3588
+#	nanopi-r6c-rk3588s \
+#	nanopi-r6s-rk3588s \
+#	nanopc-t6-rk3588 \
+#	orangepi-5-plus-rk3588 \
+#	orangepi-5-rk3588s \
+#	rock5a-rk3588s \
+#	rock5b-rk3588
 
 BUILD_DEPENDS+= devel/arm-none-eabi/gcc,aarch64 \
 		devel/py-elftools${MODPY_FLAVOR} \
@@ -39,6 +42,10 @@ do-build:
 	    ${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} ${MAKE_FLAGS} \
 	        O="build/${BOARD}" \
 	        -f ${MAKE_FILE} "${BOARD}"_defconfig
+	cd ${WRKSRC} && \
+	    ${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} ${MAKE_FLAGS} \
+	        O="build/${BOARD}" \
+	        -f ${MAKE_FILE} savedefconfig
 	cd ${WRKSRC}/build/${BOARD} && \
 	    ../../scripts/config --set-val BAUDRATE 115200
 	cd ${WRKSRC} && \
